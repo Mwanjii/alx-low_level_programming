@@ -1,1 +1,1 @@
-Debbugging codes.
+Debugs in the codes.
