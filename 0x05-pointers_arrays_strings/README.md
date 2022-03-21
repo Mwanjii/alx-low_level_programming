@@ -1,0 +1,1 @@
+The functions play around arrays and pointers; basically how to play with computer memeory.
