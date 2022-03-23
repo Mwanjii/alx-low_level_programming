@@ -1,21 +1,52 @@
-#include "holberton.h"
+#include "main.h"
+#include <stdio.h>
 
 /**
- * *_memset - fills memory with a constant byte
- * @s: memory area to be filled
- * @b: char to copy
- * @n: number of times to copy b
- *
- * Return: pointer to the memory area s
+ * print_buffer - Prints a buffer 10 bytes at a time, starting with
+ *                the byte position, then showing the hex content,
+ *                then displaying printable charcaters.
+ * @b: The buffer to be printed.
+ * @size: The number of bytes to be printed from the buffer.
  */
-char *_memset(char *s, char b, unsigned int n)
+void print_buffer(char *b, int size)
 {
-	unsigned int i;
+	int byte, index;
 
-	for (i = 0; i < n; i++)
+	for (byte = 0; byte < size; byte += 10)
 	{
-		s[i] = b;
+		printf("%08x: ", byte);
+
+		for (index = 0; index < 10; index++)
+		{
+			if ((index + byte) >= size)
+				printf("  ");
+
+			else
+				printf("%02x", *(b + index + byte));
+
+			if ((index % 2) != 0 && index != 0)
+				printf(" ");
+		}
+
+		for (index = 0; index < 10; index++)
+		{
+			if ((index + byte) >= size)
+				break;
+
+			else if (*(b + index + byte) >= 31 &&
+				 *(b + index + byte) <= 126)
+				printf("%c", *(b + index + byte));
+
+			else
+				printf(".");
+		}
+
+		if (byte >= size)
+			continue;
+
+		printf("\n");
 	}
 
-	return (s);
+	if (size <= 0)
+		printf("\n");
 }
