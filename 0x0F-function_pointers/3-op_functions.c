@@ -1,43 +1,56 @@
+#include "3-calc.h"
 
-#include <stdio.h>
-#include <stdlib.h>
 /**
- * main - prints its own opcodes
- * @argc: arg count
- * @argv: args passed as an array of strs
- *
- * Return: 0 (Success)
+ * op_add - returns the sum of two integers
+ * @a: int1
+ * @b: int2
+ * Return: a plus b
  */
-int main(int argc, char *argv[])
+int op_add(int a, int b)
 {
-	int bytes, i;
-	char *arr;
+	return (a + b);
+}
 
-	if (argc != 2)
-	{
-		printf("Error\n");
-		exit(1);
-	}
+/**
+ * op_sub - returns the difference of two integers
+ * @a: int1
+ * @b: int2
+ * Return: a minus b
+ */
+int op_sub(int a, int b)
+{
+	return (a - b);
+}
 
-	bytes = atoi(argv[1]);
+/**
+ * op_mul - returns the product of two integers
+ * @a: int1
+ * @b: int2
+ * Return: a times b
+ */
+int op_mul(int a, int b)
+{
+	return (a * b);
+}
 
-	if (bytes < 0)
-	{
-		printf("Error\n");
-		exit(2);
-	}
+/**
+ * op_div - returns the division of two integers
+ * @a: int1
+ * @b: int2
+ * Return: a divided by b
+ */
+int op_div(int a, int b)
+{
+	return (a / b);
+}
 
-	arr = (char *)main;
-
-	for (i = 0; i < bytes; i++)
-	{
-		if (i == bytes - 1)
-		{
-			printf("%02hhx\n", arr[i]);
-			break;
-		}
-		printf("%02hhx ", arr[i]);
-	}
-
-	return (0);
+/**
+ * op_mod - returns the remainder of the division of two integers
+ * @a: int1
+ * @b: int2
+ * Return: remainder of a divided by b
+ */
+int op_mod(int a, int b)
+{
+	return (a % b);
 }
