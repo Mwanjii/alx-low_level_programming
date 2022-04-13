@@ -2,41 +2,66 @@
 #include <stdlib.h>
 
 /**
- * main - prints its own opcodes
- * @argc: number of arguments
- * @argv: array of arguments
- *
- * Return: Always 0 (Success)
+ * op_add - addition operator
+ * @a: first int
+ * @b: second int
+ * Return: sum of 2 numbers
  */
-int main(int argc, char *argv[])
+int op_add(int a, int b)
 {
-	int bytes, i;
-	char *arr;
+	return (a + b);
+}
 
-	if (argc != 2)
+/**
+ * op_sub - subtraction operator
+ * @a: first in
+ * @b: second int
+ * Return: difference of 2 numbers
+ */
+int op_sub(int a, int b)
+{
+	return (a - b);
+}
+
+/**
+ * op_mul - product of 2 numbers
+ * @a: first int
+ * @b: second int
+ * Return: product of the numbers
+ */
+int op_mul(int a, int b)
+{
+	return (a * b);
+}
+
+/**
+ * op_div - division of 2 numbers
+ * @a: first int
+ * @b: second int
+ * Return: result of the division of the numbers
+ */
+int op_div(int a, int b)
+{
+	if (b == 0)
 	{
 		printf("Error\n");
-		exit(1);
+		exit(100);
 	}
+	return (a / b);
+}
 
-	bytes = atoi(argv[1]);
-
-	if (bytes < 0)
+/**
+ * op_mod - get remainder of the division of 2 numbers
+ * @a: first int
+ * @b: second int
+ * Return: remainder of division of the numbers
+ */
+int op_mod(int a, int b)
+{
+	if (b == 0)
 	{
 		printf("Error\n");
-		exit(2);
+		exit(100);
 	}
-
-	arr = (char *)main;
-
-	for (i = 0; i < bytes; i++)
-	{
-		if (i == bytes - 1)
-		{
-			printf("%02hhx\n", arr[i]);
-			break;
-		}
-		printf("%02hhx ", arr[i]);
-	}
-	return (0);
+	return (a % b);
 }
